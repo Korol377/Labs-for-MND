@@ -142,6 +142,19 @@ t4 = abs(sum(([av_y[i] * x3[i] for i in range(n)]))) / (s_beta)
 T = [t1, t2, t3, t4]
 T_tabl = t.ppf(q=0.975, df=9)
 
+def neznKoef():
+    ys11 =b[0] + b[1] * x1_m[0] + b[2] * x2_m[0] + b[3] * x3_m[0]
+    ys22 = b[0] + b[1] * x1_m[1] + b[2] * x2_m[1] + b[3] * x3_m[1]
+    ys33 = b[0] + b[1] * x1_m[2] + b[2] * x2_m[2] + b[3] * x3_m[2]
+    ys44 = b[0] + b[1] * x1_m[3] + b[2] * x2_m[3] + b[3] * x3_m[3]
+    print("Рівняння з використанням незначимих коефіцієнтів:")
+    print(f"y1 = {round(b[0], 4)} + {round(b[1], 4)}*x1 + {round(b[2], 4)}*x2 + {round(b[3], 4)}*x3 = {round(ys11, 4)}")
+    print(f"y2 = {round(b[0], 4)} + {round(b[1], 4)}*x1 + {round(b[2], 4)}*x2 + {round(b[3], 4)}*x3 = {round(ys22, 4)}")
+    print(f"y3 = {round(b[0], 4)} + {round(b[1], 4)}*x1 + {round(b[2], 4)}*x2 + {round(b[3], 4)}*x3 = {round(ys33, 4)}")
+    print(f"y4 = {round(b[0], 4)} + {round(b[1], 4)}*x1 + {round(b[2], 4)}*x2 + {round(b[3], 4)}*x3 = {round(ys44, 4)}")
+
+neznKoef()
+
 k = 0
 for i in range(n):
     if T[i] < T_tabl:
